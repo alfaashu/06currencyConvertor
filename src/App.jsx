@@ -6,13 +6,13 @@ import useCurrencyInfo from './hooks/useCurrencyInfo'
 function App() {
   
   const [amount, setAmount] = useState(0)
-  const [from, setFrom] = useState("USD")
-  const [to, setTo] = useState("INR")
+  const [from, setFrom] = useState("usd")
+  const [to, setTo] = useState("inr")
   const [convertedAmount, setConvertedAmount] = useState(0)
 
   const currencyInfo = useCurrencyInfo(from)
 
-  const options = Object.keys(useCurrencyInfo)
+  const options = Object.keys(useCurrencyInfo(from))
 
   const swap = () => {
     setFrom(to)
@@ -30,7 +30,7 @@ function App() {
     <div
         className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
         style={{
-            backgroundImage: `url('https://t4.ftcdn.net/jpg/04/39/38/95/240_F_439389547_FQP43EbfCbfPqA8TMXQu353x6GXDnTDt.jpg')`,
+            backgroundImage: `url('https://images.pexels.com/photos/3532540/pexels-photo-3532540.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2')`,
         }}
     >
         <div className="w-full">
@@ -46,7 +46,7 @@ function App() {
                             label="From"
                             amount={amount}
                             currencyOptions={options}
-                            onCurrencyChange={(currency) => setFrom(currency)}
+                            onCurrencyChange={(currency) => setAmount(amount)}
                             selectCurrency= {from}
                             onAmountChange={(amount) => setAmount(amount)}
                         />
@@ -57,7 +57,7 @@ function App() {
                             className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-white rounded-md bg-blue-600 text-white px-2 py-0.5"
                             onClick={swap}
                         >
-                            swap
+                            Swap
                         </button>
                     </div>
                     <div className="w-full mt-1 mb-4">
