@@ -12,7 +12,7 @@ function App() {
 
   const currencyInfo = useCurrencyInfo(from)
 
-  const options = Object.keys(currencyInfo)
+  const options = Object.keys(useCurrencyInfo)
 
   const swap = () => {
     setFrom(to)
@@ -30,7 +30,7 @@ function App() {
     <div
         className="w-full h-screen flex flex-wrap justify-center items-center bg-cover bg-no-repeat"
         style={{
-            backgroundImage: `url('https://t3.ftcdn.net/jpg/02/53/88/40/240_F_253884052_0tMTDxS7uKTTeWG1ZHMW1dvpYUfYGfC7.jpg')`,
+            backgroundImage: `url('https://t4.ftcdn.net/jpg/04/39/38/95/240_F_439389547_FQP43EbfCbfPqA8TMXQu353x6GXDnTDt.jpg')`,
         }}
     >
         <div className="w-full">
@@ -46,7 +46,7 @@ function App() {
                             label="From"
                             amount={amount}
                             currencyOptions={options}
-                            onCurrencyChange={(currency) => setAmount(amount)}
+                            onCurrencyChange={(currency) => setFrom(currency)}
                             selectCurrency= {from}
                             onAmountChange={(amount) => setAmount(amount)}
                         />
@@ -66,12 +66,12 @@ function App() {
                             amount={convertedAmount}
                             currencyOptions={options}
                             onCurrencyChange={(currency) => setTo(currency)}
-                            selectCurrency= {from}
+                            selectCurrency= {to}
                             amountDisable
                         />
                     </div>
                     <button type="submit" className="w-full bg-blue-600 text-white px-4 py-3 rounded-lg">
-                        Convert {from.toLocaleUpperCase()} to {to.toUpperCase()}
+                        Convert {from.toUpperCase()} to {to.toUpperCase()}
                     </button>
                 </form>
             </div>
